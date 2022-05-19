@@ -24,7 +24,7 @@ Then, to fine-tune the model run the command:
 python ./finetune_gpt2/examples/language-modeling/run_clm.py 	\
 	--model_name_or_path=gpt2 \
 	--model_type=gpt2 \
-	--config_name=infinite_memory_transformer_mask_kl_sticky_mem \
+	--config_name=infinite_memory_transformer_sticky_mem \
 	--per_device_eval_batch_size=1 \
 	--per_device_train_batch_size=1 \
 	--train_file=</path/to/train/data/file> \
@@ -41,7 +41,7 @@ To evaluate the model do:
 python ./finetune_gpt2/examples/language-modeling/run_clm.py \
 	--model_name_or_path=</path/to/output/dir>
 	--model_type=gpt2 \
-	--config_name=infinite_memory_transformer_mask_kl \ 
+	--config_name=infinite_memory_transformer_sticky_mem \ 
 	--per_device_eval_batch_size=1 \
 	--validation_file=</path/to/test/data/file> \
 	--do_eval \
