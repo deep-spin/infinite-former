@@ -407,11 +407,7 @@ class LongTermAttention(nn.Module):
             d_head = k.size(-1)
             n_head = k.size(-2)
 
-            AC = torch.einsum('ibnd,jbnd->ijbn', (q, k))             # qlen x klen x bsz x n_head
-
-            BD = torch.einsum('ibnd,jnd->ijbn', (q, r_k))              # qlen x klen x bsz x n_head
-
-            attn_score = AC + BD
+            attn_score = torch.einsum('ibnd,jbnd->ijbn', (q, k))             # qlen x klen x bsz x n_head
             attn_score.mul_(1 / (d_head ** 0.5))
             attn_prob = torch.softmax(attn_score, dim=1)
 
